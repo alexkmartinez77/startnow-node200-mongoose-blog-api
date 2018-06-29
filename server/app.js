@@ -17,6 +17,7 @@ app.use((req, res, next) => { //middleware to handle errors if the above two rou
     error.status = 404;
     next(error);
 });
+
 app.use((error, req, res, next) => {
     res.status(error.status || 404);
     res.json({
