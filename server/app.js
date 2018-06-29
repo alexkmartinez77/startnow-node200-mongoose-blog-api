@@ -4,10 +4,10 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser'); //a library that allows us to get the body of the request back (req.body), supports JSON, URL-encoded bodies
 const app = express(); //An object that is created by creating express top-level function express();
 
-if (process.env.ENV === 'production'){
+if (process.env.ENV === 'production'){               //instruct mongoose to access to mlab database
     mongoose.connect(process.env.MONGODB_URI);
 }else {
-    mongoose.connect('mongodb://localhost/my-blog'); //instruct mongoose to connect to your local MongoDB instance
+    mongoose.connect('mongodb://localhost/my-blog'); //instruct mongoose to connect to your local MongoDB instance if you are accessing locally
 };
 
 mongoose.Promise = Promise; //enable promises for mongoose for easier async operations
